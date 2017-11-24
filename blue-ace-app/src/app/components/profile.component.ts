@@ -11,6 +11,7 @@ import {AuthService} from "../services/auth.service";
 })
 
 export class ProfileComponent implements OnInit {
+
   bets: Bet[];
   constructor(private router: Router,
               private betService: BetService,
@@ -55,4 +56,5 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.getBets();
   }
+
 }

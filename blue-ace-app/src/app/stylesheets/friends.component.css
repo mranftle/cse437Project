@@ -1,6 +1,4 @@
-#menu ul{
-  list-style: none;
-}
-#menu li{
+.buttons li{
   display: inline;
+  list-style: none;
 }
