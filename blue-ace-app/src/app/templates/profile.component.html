@@ -36,8 +36,8 @@
       <ul *ngFor="let b of bets">
         <div *ngIf="(b.completed===0)">
           <p>Requested: </p>
-        Home Score: {{b.home_score}} Away Score: {{b.away_score}} Home Bet: {{b.home_bet}} Away Bet: {{b.away_bet}} Charity 1: {{b.home_charity}} Charity2: {{b.away_charity}}
-          <button (click)="declineBet()">Decline Bet</button>
+        Home Score: {{b.home_score}} Away Score: {{b.away_score}} Home Bet: {{b.bet_amount}} Away Bet: {{b.bet_amount}} Charity 1: {{b.home_charity}} Charity2: {{b.away_charity}}
+          <button (click)="declineBet(b.id)">Decline Bet</button>
           <ng-template #content let-c="close" let-d="dismiss">
             <div class="modal-header">
               <h4 class="modal-title">Place Bet</h4>
@@ -46,7 +46,8 @@
               </button>
             </div>
             <div class="modal-body">
-              <p>Something else</p>
+              Charity: <input type="text">
+              <button (click)="acceptBet()">Accept</button>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
@@ -56,8 +57,9 @@
         </div>
         <div *ngIf="(b.completed===1)">
           <p>Pending: </p>
-          Home Score: {{b.home_score}} Away Score: {{b.away_score}} Home Bet: {{b.home_bet}} Away Bet: {{b.away_bet}} Charity 1: {{b.home_charity}} Charity2: {{b.away_charity}}
-          <button (click)="declineBet()">Decline Bet</button>
+          ID: {{b.id}} Home Score: {{b.home_score}} Away Score: {{b.away_score}} Home Bet: {{b.bet_amount}} Away Bet: {{b.bet_amount}} Charity 1: {{b.home_charity}} Charity2: {{b.away_charity}}
+
+          <button (click)="declineBet(b.id)">Decline Bet</button>
           <ng-template #content let-c="close" let-d="dismiss">
             <div class="modal-header">
               <h4 class="modal-title">Place Bet</h4>
@@ -66,7 +68,8 @@
               </button>
             </div>
             <div class="modal-body">
-              <p>Something else</p>
+              Charity: <input type="text">
+              <button (click)="acceptBet()">Accept</button>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
@@ -81,7 +84,7 @@
     <ng-template ngbPanelContent>
       <ul *ngFor="let b of bets">
       <div *ngIf="(b.completed===2)">
-        Home Score: {{b.home_score}} Away Score: {{b.away_score}} Home Bet: {{b.home_bet}} Away Bet: {{b.away_bet}} Charity 1: {{b.home_charity}} Charity2: {{b.away_charity}}
+        Home Score: {{b.home_score}} Away Score: {{b.away_score}} Home Bet: {{b.bet_amount}} Away Bet: {{b.bet_amount}} Charity 1: {{b.home_charity}} Charity2: {{b.away_charity}}
       </div>
       </ul>
     </ng-template>
@@ -90,7 +93,7 @@
     <ng-template ngbPanelContent>
       <ul *ngFor="let b of bets">
       <div *ngIf="(b.completed===3)">
-          Home Score: {{b.home_score}} Away Score: {{b.away_score}} Home Bet: {{b.home_bet}} Away Bet: {{b.away_bet}} Charity 1: {{b.home_charity}} Charity2: {{b.away_charity}}
+          Home Score: {{b.home_score}} Away Score: {{b.away_score}} Home Bet: {{b.bet_amount}} Away Bet: {{b.bet_amount}} Charity 1: {{b.home_charity}} Charity2: {{b.away_charity}}
           <ng-template #content let-c="close" let-d="dismiss">
             <div class="modal-header">
               <h4 class="modal-title">Place Bet</h4>
@@ -99,7 +102,8 @@
               </button>
             </div>
             <div class="modal-body">
-              <p>Something else</p>
+              Charity: <input type="text">
+              <button (click)="acceptBet()">Accept</button>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>

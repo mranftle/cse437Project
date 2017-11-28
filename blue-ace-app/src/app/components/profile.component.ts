@@ -42,7 +42,8 @@ export class ProfileComponent implements OnInit {
       (bets) => {
         this.bets = bets.map(function(obj) {
           let b = new Bet();
-          console.log(obj);
+          b.id = obj.id;
+          console.log(b.id);
           b.home_team_abb = obj.home_team_abb;
           b.away_team_abb = obj.away_team_abb;
           b.home_score = obj.home_score;
